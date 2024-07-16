@@ -3,30 +3,37 @@ import 'package:flutter/material.dart';
 import 'dropdown.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         title: Text('Dersler'),
-    actions: [
-    Padding(
-    padding: const EdgeInsets.only(right: 16.0),
-    child: DerslerDropdown(),
-    ),
-    ],
-        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: DerslerDropdown(),
+          ),
+        ],
+      ),
       body: BackgroundImage(),
     );
   }
 }
 
-class BackgroundImage extends StatelessWidget {
-  const BackgroundImage({super.key});
+class BackgroundImage extends StatefulWidget {
+  const BackgroundImage({Key? key}) : super(key: key);
 
   @override
+  _BackgroundImageState createState() => _BackgroundImageState();
+}
+
+class _BackgroundImageState extends State<BackgroundImage> {
+  @override
   Widget build(BuildContext context) {
+    final PageController _pageController = PageController(viewportFraction: 0.8);
+    int _currentPage = 0;
     final size = MediaQuery.of(context).size;
 
     return Stack(
@@ -49,7 +56,7 @@ class BackgroundImage extends StatelessWidget {
               image: AssetImage("assets/images/section.jpg"),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.5),
+                Colors.black.withOpacity(0.7),
                 BlendMode.dstATop,
               ),
             ),
@@ -68,7 +75,6 @@ class BackgroundImage extends StatelessWidget {
                     child: Text(
                       "Dersler",
                       style: TextStyle(fontSize: 20, color: Colors.black),
-
                     ),
                   ),
                   SizedBox(width: 5), // "Dersler" ve ikon arasında küçük bir boşluk
@@ -95,6 +101,7 @@ class BackgroundImage extends StatelessWidget {
             ),
           ),
         ),
+
       ],
     );
   }

@@ -44,7 +44,55 @@ class _DerslerDropdownState extends State<DerslerDropdown> {
       'Din Kültürü ve Ahlak Bilgisi',
       'İngilizce'
     ],
-    // Diğer sınıflar için de benzer şekilde ekleyebilirsiniz
+    '3. Sınıf': [
+      'Türkçe',
+      'Matematik',
+      'Fen Bilgisi',
+      'Sosyal Bilgiler',
+      'Din Kültürü ve Ahlak Bilgisi',
+      'İngilizce'
+    ],
+    '4. Sınıf': [
+      'Türkçe',
+      'Matematik',
+      'Fen Bilgisi',
+      'Sosyal Bilgiler',
+      'Din Kültürü ve Ahlak Bilgisi',
+      'İngilizce'
+    ],
+    '5. Sınıf': [
+      'Türkçe',
+      'Matematik',
+      'Fen Bilgisi',
+      'Sosyal Bilgiler',
+      'Din Kültürü ve Ahlak Bilgisi',
+      'İngilizce'
+    ],
+    '6. Sınıf': [
+      'Türkçe',
+      'Matematik',
+      'Fen Bilgisi',
+      'Sosyal Bilgiler',
+      'Din Kültürü ve Ahlak Bilgisi',
+      'İngilizce'
+    ],
+    '7. Sınıf': [
+      'Türkçe',
+      'Matematik',
+      'Fen Bilgisi',
+      'Sosyal Bilgiler',
+      'Din Kültürü ve Ahlak Bilgisi',
+      'İngilizce'
+    ],
+    '8. Sınıf': [
+      'Türkçe',
+      'Matematik',
+      'Fen Bilgisi',
+      'Sosyal Bilgiler',
+      'Din Kültürü ve Ahlak Bilgisi',
+      'İngilizce'
+    ],
+
   };
 
   List<String> _currentLessons = [];
@@ -92,7 +140,7 @@ class _DerslerDropdownState extends State<DerslerDropdown> {
           PopupMenuButton<String>(
             onSelected: (String result) {
               setState(() {
-                // Seçilen dersi işleyebilirsiniz
+
               });
             },
             itemBuilder: (BuildContext context) {

@@ -16,7 +16,6 @@ class _StudentAddedState extends State<StudentAdded> {
   var _classController = TextEditingController();
   var _studentNumberController = TextEditingController();
   var _emailController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -201,4 +200,7 @@ Widget buildTextField(String label, TextEditingController controller) {
       ),
     );
   }
+
+
+
 
