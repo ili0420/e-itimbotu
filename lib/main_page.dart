@@ -30,10 +30,17 @@ class BackgroundImage extends StatefulWidget {
 }
 
 class _BackgroundImageState extends State<BackgroundImage> {
+  final PageController _pageController = PageController(viewportFraction: 0.8);
+  int _currentPage = 0;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final PageController _pageController = PageController(viewportFraction: 0.8);
-    int _currentPage = 0;
     final size = MediaQuery.of(context).size;
 
     return Stack(
@@ -62,46 +69,95 @@ class _BackgroundImageState extends State<BackgroundImage> {
             ),
           ),
         ),
-        SingleChildScrollView(
-          child: Container(
-            height: size.height,
-            width: size.width,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 700, left: 5),
-              child: Row(
-                children: [
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      "Dersler",
-                      style: TextStyle(fontSize: 20, color: Colors.black),
-                    ),
-                  ),
-                  SizedBox(width: 5), // "Dersler" ve ikon arasında küçük bir boşluk
-                  Image.asset(
-                    "assets/images/open-book.png",
-                    width: 24, //
-                  ),
-                  SizedBox(width: 20), // İkonlar ve metinler arasında daha büyük boşluk
-                  InkWell(
-                    onTap: (){},
-                    child: Text(
-                      "Paketler",
-                      style: TextStyle(fontSize: 20, color: Colors.black),
-                    ),
-                  ),
-                  SizedBox(width: 5),
-                  Image.asset(
-                    "assets/images/online-video.png",
-                    width: 24, // Resmin genişliği
-                    height: 24, // Resmin yüksekliği
-                  ),
-                ],
+        Positioned(
+          bottom: 700,
+          left: 5,
+          child: Row(
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  "Dersler",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
               ),
-            ),
+              SizedBox(width: 5),
+              Image.asset(
+                "assets/images/open-book.png",
+                width: 24,
+              ),
+              SizedBox(width: 20),
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  "Paketler",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+              ),
+              SizedBox(width: 5),
+              Image.asset(
+                "assets/images/online-video.png",
+                width: 24,
+                height: 24,
+              ),
+            ],
           ),
         ),
-
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 200,
+              child: SingleChildScrollView(
+                child: Container(
+                  width: 300,
+                  height: 400,
+                  child: Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/images/work.png'),
+                        Text('5.Sınıf Eğitim Seti'),
+                        Text(
+                          'Kapsamlı ders içerikleri ve sınav stratejileri ile donatılan bu paket, öğrencilerin hedeflerine emin adımlarla ilerlemelerine yardımcı olur.',
+                        ),
+                        SizedBox(height: 20),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.indigo,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 8,
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'İncele',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              SizedBox(width: 8),
+                              Icon(Icons.chevron_right, color: Colors.white),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }
